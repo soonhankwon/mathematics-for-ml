@@ -47,3 +47,32 @@ print(np.dot(D,B))
 # 2x2 단위행렬(identity matrix) 생성 및 출력
 G = np.asmatrix(np.identity(2))
 print(G)
+
+# 행렬 A의 고윳값(eigenvalue) 계산 및 출력
+# 고윳값은 행렬을 대각화할 때 대각성분에 위치하는 값
+print(linalg.eigvals(A))
+
+# 행렬 A의 고윳값과 고유벡터를 동시에 계산
+# la: 고윳값들이 담긴 배열
+# v: 고유벡터들이 담긴 행렬(각 열이 하나의 고유벡터)
+la, v = linalg.eig(A)
+
+# 계산된 두 개의 고윳값을 각각 l1, l2 변수에 저장
+# 2x2 행렬이므로 고윳값도 2개가 나옴
+l1, l2 = la
+
+# 첫 번째 고유벡터 출력 
+# v의 첫 번째 열(v[:,0])이 첫 번째 고윳값 l1에 대응하는 고유벡터
+print(v[:,0])
+
+# C 행렬에서 0.5보다 큰 값을 0으로 변경
+C[C > 0.5] = 0
+
+# C 행렬을 희소행렬 형태로 변환
+H = sparse.csr_matrix(C)
+
+# 희소행렬을 일반적인 행렬(dense matrix)로 풀어서 출력
+print(H.todense())
+
+# 희소행렬 여부 확인
+print(sparse.isspmatrix_csr(H))
