@@ -6,7 +6,7 @@ np.random.seed(0)
 
 # 이항분포에서 10개의 난수 생성
 # n=10 (시행횟수), p=0.5 (성공확률)인 이항분포
-print(stats.binom(10, 0.5).rvs(10))
+print(stats.binom(10, 0.5).rvs(10)) # [5 6 5 5 5 6 5 7 8 5]
 
 # 표준정규분포(평균=0, 표준편차=1)에서 10개의 난수 생성
 print(stats.norm().rvs(10))
